@@ -24,7 +24,7 @@ PATH_SENTEVAL = '../'
 PATH_TO_DATA = '../data'
 PATH_TO_W2V = os.path.expanduser('~/Sync/datasets/glove/glove.840B.300d.txt')  # or crawl-300d-2M.vec for V2
 # MODEL_PATH = 'infersent1.pkl'
-MODEL_PATH = 'infersent.snli.pickle'
+MODEL_PATH = 'infersent1.pkl'
 V = 1 # version of InferSent
 
 assert os.path.isfile(MODEL_PATH) and os.path.isfile(PATH_TO_W2V), \
@@ -61,6 +61,11 @@ if __name__ == "__main__":
     params_model = {'bsize': 64, 'word_emb_dim': 300, 'enc_lstm_dim': 2048,
                     'pool_type': 'max', 'dpout_model': 0.0, 'version': V}
     model = InferSent(params_model)
+
+    map_location = lambda storage, loc: storage.cuda(1)
+    model.load_state_dict(torch.load(MODEL_PATH, map_location=map_location))
+    # model.load_state_dict(torch.load(MODEL_PATH))
+
     model.load_state_dict(torch.load(MODEL_PATH))
     model.set_w2v_path(PATH_TO_W2V)
 
