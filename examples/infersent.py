@@ -22,8 +22,9 @@ from models import InferSent
 # Set PATHs
 PATH_SENTEVAL = '../'
 PATH_TO_DATA = '../data'
-PATH_TO_W2V = 'PATH/TO/glove.840B.300d.txt'  # or crawl-300d-2M.vec for V2
-MODEL_PATH = 'infersent1.pkl'
+PATH_TO_W2V = os.path.expanduser('~/Sync/datasets/glove/glove.840B.300d.txt')  # or crawl-300d-2M.vec for V2
+# MODEL_PATH = 'infersent1.pkl'
+MODEL_PATH = 'infersent.snli.pickle'
 V = 1 # version of InferSent
 
 assert os.path.isfile(MODEL_PATH) and os.path.isfile(PATH_TO_W2V), \
