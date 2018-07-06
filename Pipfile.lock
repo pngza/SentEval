@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f994538acee71720fb70627440110b315a28bc908c8cf7b9edf445e99f09b634"
+            "sha256": "7d58798bc09131223a8ee10700ab469b57aa3099841ddb0b8bf7fd5e691118dc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -49,19 +49,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version != '3.0.*' and python_version != '3.1.*' and python_version != '3.2.*' and python_version != '3.3.*'",
             "version": "==1.14.5"
-        },
-        "pyyaml": {
-            "hashes": [
-                "sha256:16b20e970597e051997d90dc2cddc713a2876c47e3d92d59ee198700c5427736",
-                "sha256:3262c96a1ca437e7e4763e2843746588a965426550f3797a79fca9c6199c431f",
-                "sha256:592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab",
-                "sha256:5ac82e411044fb129bae5cfbeb3ba626acb2af31a8d17d175004b70862a741a7",
-                "sha256:827dc04b8fa7d07c44de11fabbc888e627fa8293b695e0f99cb544fdfa1bf0d1",
-                "sha256:bc6bced57f826ca7cb5125a10b23fd0f2fff3b7c4701d64c439a300ce665fff8",
-                "sha256:c01b880ec30b5a6e6aa67b09a2fe3fb30473008c85cd6a67359a1b15ed6d83a4",
-                "sha256:e863072cdf4c72eebf179342c94e6989c67185842d9997960b3e69290b2fa269"
-            ],
-            "version": "==3.12"
         },
         "scikit-learn": {
             "hashes": [
@@ -133,19 +120,18 @@
             "version": "==0.0"
         },
         "torch": {
-            "file": "http://download.pytorch.org/whl/cu90/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl",
+            "file": "http://download.pytorch.org/whl/cu90/torch-0.4.0-cp27-cp27mu-linux_x86_64.whl",
             "hashes": [
-                "sha256:3e1d77faad3cd6c9009249406f333239c1dd06321b0a27142cf996297af5f0e5",
-                "sha256:5af3ff750ca2b78b86cbb2da1689a70ffcab88b801bcbf92d6810e182526e654",
-                "sha256:67722a24be80beca362eb6e612b5e29f358143d62f2b53729f2c6b4184f89d09",
-                "sha256:9bd42b43a1e078ca40c73d4c585ae921dd2271427f55f589d544508433205637",
-                "sha256:bf8f79bd2e01341d9983390d23411f90883f13352e3c835e4ec136456a4ab7fb",
-                "sha256:db31189d3f4008db7aa988a912cbc358f006151da4f10f1448ab87bcc0477829",
-                "sha256:fc0894f970693fcdb369d887c1662ff96a069690747d79a43d18f6115808026b"
+                "sha256:05573009d20a7cfc551f919b2abc52dbac43d269bc40f98fb67eddcd4145a6ae",
+                "sha256:06ba3249027330073339de369a0584c938cfddec740f26ce15be88bb40746b42",
+                "sha256:1ea154c7042fd0ae573a16540fdcf9b9f732857001fad2e5569a0bc2d37ff30c",
+                "sha256:292417c83d09fe14741d9cb7928375c40ee24803634ac31ada1e43c7fc26b847",
+                "sha256:6c9ac80a4487028e343cb4ae3be9a676e51caeecdc94aefbd6c11916ecf36760",
+                "sha256:bde3b8131973dd8a454be9e0aa3b1a7df410afe16c58ae7eed848005bd449aac",
+                "sha256:c043adef934051df1308d7d9a3ef7a299c0cf1accb04b3790b2342c23ae6fdea"
             ],
             "index": "pypi",
-            "markers": null,
-            "version": "==0.3.1"
+            "version": "==0.4.0"
         }
     },
     "develop": {}
