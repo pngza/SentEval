@@ -56,20 +56,24 @@ params_senteval['classifier'] = {'nhid': 0, 'optim': 'rmsprop', 'batch_size': 12
 # Set up logger
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
+GPU_ID = 2
+
 if __name__ == "__main__":
     # Load InferSent model
     params_model = {'bsize': 64, 'word_emb_dim': 300, 'enc_lstm_dim': 2048,
                     'pool_type': 'max', 'dpout_model': 0.0, 'version': V}
+
+    torch.cuda.set_device(GPU_ID)
     model = InferSent(params_model)
 
-    map_location = lambda storage, loc: storage.cuda(1)
+    map_location = lambda storage, loc: storage.cuda(GPU_ID)
     model.load_state_dict(torch.load(MODEL_PATH, map_location=map_location))
     # model.load_state_dict(torch.load(MODEL_PATH))
 
     model.load_state_dict(torch.load(MODEL_PATH))
     model.set_w2v_path(PATH_TO_W2V)
 
-    params_senteval['infersent'] = model.cuda()
+    params_senteval['infersent'] = model.cuda(GPU_ID)
 
     se = senteval.engine.SE(params_senteval, batcher, prepare)
     transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
