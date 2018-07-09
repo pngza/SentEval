@@ -17,7 +17,7 @@ import torch
 import logging
 
 # get models.py from InferSent repo
-from models import InferSent
+from models import InferSent, ConvNetEncoder
 
 # Set PATHs
 PATH_SENTEVAL = '../'
@@ -58,13 +58,27 @@ logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 GPU_ID = 2
 
-if __name__ == "__main__":
-    # Load InferSent model
-    params_model = {'bsize': 64, 'word_emb_dim': 300, 'enc_lstm_dim': 2048,
-                    'pool_type': 'max', 'dpout_model': 0.0, 'version': V}
+# either InferSent or ConvNetEncoder
+algo = 'ConvNetEncoder'
 
+if __name__ == "__main__":
     torch.cuda.set_device(GPU_ID)
-    model = InferSent(params_model)
+
+    # Load InferSent model
+
+    if algo == 'InferSent'
+        params_model = {'bsize': 64, 'word_emb_dim': 300, 'enc_lstm_dim': 2048,
+                        'pool_type': 'max', 'dpout_model': 0.0, 'version': V}
+        model = InferSent(params_model)
+    elif algo == 'ConvNetEncoder':
+        params_model = {
+            'bsize': 64,
+            'word_emb_dim': 300,
+            'enc_lstm_dim': 2048,
+            'pool_type': 'max'}
+        model = ConvNetEncoder(params_model)
+    else:
+        raise Exception('invalid model')
 
     map_location = lambda storage, loc: storage.cuda(GPU_ID)
     model.load_state_dict(torch.load(MODEL_PATH, map_location=map_location))
