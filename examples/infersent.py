@@ -27,6 +27,9 @@ PATH_TO_W2V = os.path.expanduser('~/Sync/datasets/glove/glove.840B.300d.txt')  #
 MODEL_PATH = sys.argv[1]
 V = 1 # version of InferSent
 
+# either InferSent or ConvNetEncoder
+algo = 'ConvNetEncoder'
+
 assert os.path.isfile(MODEL_PATH) and os.path.isfile(PATH_TO_W2V), \
     'Set MODEL and GloVe PATHs'
 
@@ -58,15 +61,13 @@ logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 GPU_ID = 2
 
-# either InferSent or ConvNetEncoder
-algo = 'ConvNetEncoder'
 
 if __name__ == "__main__":
     torch.cuda.set_device(GPU_ID)
 
     # Load InferSent model
 
-    if algo == 'InferSent'
+    if algo == 'InferSent':
         params_model = {'bsize': 64, 'word_emb_dim': 300, 'enc_lstm_dim': 2048,
                         'pool_type': 'max', 'dpout_model': 0.0, 'version': V}
         model = InferSent(params_model)
